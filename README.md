@@ -1,9 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stock Market App (Signalist)
+
+A modern, real-time stock market tracking application built with Next.js, featuring TradingView widgets for comprehensive market data visualization.
+
+## Features
+
+- **Real-time Market Data**: Live stock prices and market information via TradingView widgets
+- **Market Overview**: Comprehensive market performance dashboard
+- **Stock Heatmap**: Visual representation of stock performance across the market
+- **Market Quotes**: Real-time quotes and market data
+- **Top Stories**: Financial news and market updates timeline
+- **Dark Theme**: Modern dark mode interface
+- **Responsive Design**: Optimized for desktop and mobile devices
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) with App Router
+- **UI Library**: React 19
+- **Styling**: Tailwind CSS 4
+- **UI Components**: Radix UI (Dropdown Menu, Avatar, Slot)
+- **Icons**: Lucide React
+- **Charts**: TradingView Widgets
+- **Language**: TypeScript
+- **Code Quality**: ESLint, Prettier
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 20+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd stock-market-app
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
@@ -14,23 +58,66 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+stock-market-app/
+├── app/
+│   ├── (root)/
+│   │   ├── layout.tsx      # Root layout with Header
+│   │   └── page.tsx         # Home page with TradingView widgets
+│   ├── globals.css          # Global styles
+│   └── layout.tsx           # Root HTML layout
+├── components/
+│   ├── ui/                  # Reusable UI components (Button, Avatar, Dropdown)
+│   ├── Header.tsx           # Application header with navigation
+│   ├── NavItems.tsx         # Navigation menu items
+│   ├── TradingViewWidget.tsx # TradingView widget wrapper
+│   └── UserDropdown.tsx     # User profile dropdown
+├── hooks/
+│   └── useTradingViewWidget.tsx  # Custom hook for TradingView widgets
+├── lib/
+│   ├── constants.ts         # Application constants and widget configs
+│   └── utils.ts             # Utility functions
+└── public/
+    └── assets/              # Static assets (logos, images)
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## Key Components
+
+### TradingViewWidget
+A reusable component that wraps TradingView widgets, providing a consistent interface for displaying market data, charts, and financial information.
+
+### Header
+The main navigation header featuring:
+- Logo and branding
+- Navigation menu (Dashboard, Search)
+- User dropdown menu
+
+## Development
+
+The project uses:
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling with custom configuration
+- **ESLint** for code linting
+- **Prettier** for code formatting
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TradingView Widgets](https://www.tradingview.com/widget-docs/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Radix UI Documentation](https://www.radix-ui.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is private.
