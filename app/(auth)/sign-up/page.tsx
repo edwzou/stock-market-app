@@ -2,12 +2,14 @@
 
 import {useForm} from "react-hook-form";
 import {Button} from "@/components/ui/button";
-import {useRouter} from "next/navigation";
 import InputField from "@/components/forms/InputField";
 import SelectField from "@/components/forms/SelectField";
-import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from "@/lib/constants";
+import {INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS} from "@/lib/constants";
+import {CountrySelectField} from "@/components/forms/CountrySelectField";
 import FooterLink from "@/components/forms/FooterLink";
-import { CountrySelectField } from "@/components/forms/CountrySelectField";
+import {signUpWithEmail} from "@/lib/actions/auth.actions";
+import {useRouter} from "next/navigation";
+import {toast} from "sonner";
 
 const SignUp = () => {
     const router = useRouter()
@@ -31,9 +33,13 @@ const SignUp = () => {
 
     const onSubmit = async (data: SignUpFormData) => {
         try {
-            console.log(data);
+            const result = await signUpWithEmail(data);
+            if(result.success) router.push('/');
         } catch (e) {
             console.error(e);
+            toast.error('Sign up failed', {
+                description: e instanceof Error ? e.message : 'Failed to create an account.'
+            })
         }
     }
 
@@ -54,7 +60,7 @@ const SignUp = () => {
                 <InputField
                     name="email"
                     label="Email"
-                    placeholder="contact@zennteam.com"
+                    placeholder="contact@jsmastery.com"
                     register={register}
                     error={errors.email}
                     validation={{ required: 'Email name is required', pattern: /^\w+@\w+\.\w+$/, message: 'Email address is required' }}
@@ -107,7 +113,7 @@ const SignUp = () => {
                     error={errors.preferredIndustry}
                     required
                 />
-                
+
                 <Button type="submit" disabled={isSubmitting} className="yellow-btn w-full mt-5">
                     {isSubmitting ? 'Creating Account' : 'Start Your Investing Journey'}
                 </Button>
