@@ -60,6 +60,14 @@ bun dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
+## Deployment
+
+This application is deployed on [Vercel](https://vercel.com/) and is live at:
+
+**🌐 [https://stock-market-app-weld.vercel.app/](https://stock-market-app-weld.vercel.app/)**
+
+The deployment is automatically updated on every push to the main branch.
+
 ## Project Structure
 
 ```
